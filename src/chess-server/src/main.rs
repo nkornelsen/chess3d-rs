@@ -66,6 +66,7 @@ fn handle_connection(s: TcpStream, state: Arc<Mutex<ServerState>>) {
             }
             running = state.lock().unwrap().board.is_running();
         }
+        println!("Ended connection");
     });
 
     println!("handle_connection finished");

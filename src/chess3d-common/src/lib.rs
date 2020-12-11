@@ -25,10 +25,13 @@ pub fn recv_message(stream: &mut TcpStream) -> Result<ServerMessage, std::io::Er
     let mut len_buffer = [0; 4];
     stream.read(&mut len_buffer)?;
     let len = u32::from_be_bytes(len_buffer) as usize;
+    println!("Message length: {}", len);
     
     let mut data: Vec<u8> = Vec::with_capacity(len as usize);
     data.resize(len, 0);
-    stream.read(&mut data).unwrap();
+    stream.read_exact(&mut data).unwrap();
+
+    println!("Data: {:?}", std::str::from_utf8(&data).unwrap());
 
     Ok(serde_json::from_slice::<ServerMessage>(&data).unwrap())
 }
