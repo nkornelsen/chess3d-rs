@@ -1,0 +1,9 @@
+[workspace]
+
+members = [
+    "src/chess3d",
+    "src/console-player",
+    "src/chess-net-client",
+    "src/chess-server",
+    "src/chess3d-common",
+]

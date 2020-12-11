@@ -1,0 +1,16 @@
+[package]
+name = "chess-net-client"
+version = "0.1.0"
+authors = ["Nolan K <perpetualcolor@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+chess3d = { path = "../chess3d" }
+chess3d-common = { path = "../chess3d-common" }
+serde_json = "1.0.60"
+serde = { version = "1.0.118", features = ["derive"] }
+crossbeam = "0.8.0"
+cursive = { version = "0.15.0", default-features = false, features = ["pancurses-backend"] }
+crossbeam-channel = "0.4.2"
