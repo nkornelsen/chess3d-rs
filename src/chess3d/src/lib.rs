@@ -105,6 +105,10 @@ impl Move {
     pub fn to(&self) -> Location {
         self.to
     }
+
+    pub fn piece(&self) -> (Colors, Pieces) {
+        self.piece
+    }
 }
 
 impl From<(isize, isize, isize)> for Location {

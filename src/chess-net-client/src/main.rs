@@ -1,15 +1,9 @@
-use std::io::prelude::*;
 use std::net::TcpStream;
-use std::convert::From;
-use std::borrow::Borrow;
-use std::rc::Rc;
-use std::cell::RefCell;
 use std::sync::{ Arc, Mutex };
 
 use chess3d::Board;
-use chess3d::Location;
 
-use cursive::views::{ EditView, TextView, Panel, BoxedView };
+use cursive::views::{ EditView, TextView, Panel };
 use cursive::view::{ Nameable, Resizable };
 use cursive::Cursive;
 use cursive::Printer;
@@ -22,7 +16,6 @@ use cursive::theme::Color;
 use cursive::theme::BaseColor;
 use cursive::theme::ColorStyle;
 
-use serde_json;
 use chess3d_common::ServerMessage;
 
 struct OnlineGame {

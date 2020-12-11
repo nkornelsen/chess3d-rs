@@ -1,9 +1,5 @@
-use std::convert::From;
-
 use chess3d::Board;
-use chess3d::Location;
 
-use cursive::views::TextView;
 use cursive::Printer;
 use cursive::views::Dialog;
 use cursive::views::Panel;
