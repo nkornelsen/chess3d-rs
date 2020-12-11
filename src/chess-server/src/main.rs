@@ -66,7 +66,7 @@ fn handle_connection(s: TcpStream, state: Arc<Mutex<ServerState>>) {
             if let Ok(message) = data {
                 match message {
                     ServerMessage::PlayerMove { r#move } => {
-                        println!("PlayerMove");
+                        println!("PlayerMove {}", player.id);
                         let s = &mut *state.lock().unwrap();
                         // s.execute_move(&r#move);
                         let piece = {
