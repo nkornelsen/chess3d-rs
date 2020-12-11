@@ -19,6 +19,7 @@ pub fn emit_message(stream: &mut TcpStream, message: &ServerMessage) {
     let len = data.as_bytes().len() as u32;
     stream.write(&u32::to_be_bytes(len)).unwrap();
     stream.write(data.as_bytes()).unwrap();
+    stream.flush().unwrap();
 }
 
 pub fn recv_message(stream: &mut TcpStream) -> Result<ServerMessage, std::io::Error> {
