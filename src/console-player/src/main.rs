@@ -34,6 +34,16 @@ impl cursive::view::View for BoardView {
     fn draw(&self, printer: &Printer) {
         let mut bg_colors = [[[Color::Dark(BaseColor::White); 8]; 8]; 8];
 
+        for x in 0..8 {
+            for y in 0..8 {
+                for z in 0..8 {
+                    if (x + (y % 2) + (z % 2)) == 0 {
+                        bg_colors[x][y][z] = Color::Light(BaseColor::Black);
+                    }
+                }
+            }
+        }
+
         match self.cursor {
             None => {},
             Some(pos) => {

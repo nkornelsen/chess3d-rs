@@ -47,6 +47,16 @@ impl cursive::view::View for OnlineGame {
     fn draw(&self, printer: &Printer) {
         let mut bg_colors = [[[Color::Dark(BaseColor::White); 8]; 8]; 8];
 
+        for x in 0..8 {
+            for y in 0..8 {
+                for z in 0..8 {
+                    if ((x % 2) + (y % 2) + (z % 2)) % 2 == 0 {
+                        bg_colors[x][y][z] = Color::RgbLowRes(2, 2, 2);
+                    }
+                }
+            }
+        }
+
         match self.cursor {
             None => {},
             Some(pos) => {
@@ -91,15 +101,15 @@ impl cursive::view::View for OnlineGame {
                             color = Color::Rgb(255, 255, 255);
                         },
                     }
-                    let bg_color = match self.cursor {
-                        None => Color::Dark(BaseColor::White),
-                        Some(_) => {
-                            bg_colors[x][y][z]
-                        },
-                    };
+                    // let bg_color = match self.cursor {
+                    //     None => Color::Dark(BaseColor::White),
+                    //     Some(_) => {
+                    //         bg_colors[x][y][z]
+                    //     },
+                    // };
 
                     printer.with_color(
-                        ColorStyle::new(color, bg_color),
+                        ColorStyle::new(color, bg_colors[x][y][z]),
                         |printer| printer.print(((x * 2) + (19 * z + 2), (7 - y) + 2), &text)
                     );
                 }
