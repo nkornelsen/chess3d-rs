@@ -134,7 +134,6 @@ impl cursive::view::View for OnlineGame {
                     if let Some(moves) = &self.current_moves {
                         let m = moves.iter().find(|i| i.to() == (pos.x, pos.y, board).into());
                         if let Some(selected_move) = m {
-                            // self.chess_board.as_ref().borrow_mut().execute_move(selected_move);
                             chess3d_common::emit_message(&mut self.stream, &ServerMessage::PlayerMove { r#move: selected_move.clone() });
 
                             self.cursor = None;
