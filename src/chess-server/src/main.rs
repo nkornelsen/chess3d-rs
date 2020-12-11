@@ -76,11 +76,14 @@ fn handle_connection(s: TcpStream, state: Arc<Mutex<ServerState>>) {
                             chess3d::BoardState::Piece((chess3d::Colors::White, _)) => {
                                 if player.id == 0 {
                                     s.board.execute_move(&r#move);
+                                } else {
+                                    println!("Failed to move white piece");
                                 }
                             },
                             chess3d::BoardState::Piece((chess3d::Colors::Black, _)) => {
                                 if player.id == 1 {
                                     s.board.execute_move(&r#move);
+                                    println!("Failed to move black piece");
                                 }
                             },
                             _ => { println!("Move denied"); }
