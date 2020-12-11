@@ -72,7 +72,7 @@ impl cursive::view::View for BoardView {
                         },
                         BoardState::Piece((Colors::White, p)) => {
                             text.push(p.character());
-                            color = Color::RgbLowRes(5, 5, 5);
+                            color = Color::Rgb(255, 255, 255);
                         },
                     }
                     let bg_color = match self.cursor {

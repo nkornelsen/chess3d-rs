@@ -24,7 +24,7 @@ impl ServerState {
 fn main() {
     let listener = TcpListener::bind("0.0.0.0:7878").unwrap();
 
-    let mut state = Arc::new(Mutex::new(ServerState {
+    let state = Arc::new(Mutex::new(ServerState {
         board: Board::new(),
         connections: Vec::new()
     }));
